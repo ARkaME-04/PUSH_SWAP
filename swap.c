@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 09:50:12 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/04 10:16:32 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/04 13:12:53 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	swap(t_stack **head)
 {
-	int	index;
 	t_stack	*tmp;
 
 	if (!*head || !(*head)->next)
