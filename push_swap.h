@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 08:45:31 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/04 10:05:59 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/04 13:12:33 by tandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ void	swap(t_stack **head);
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **b, t_stack **a);
 
 #endif
