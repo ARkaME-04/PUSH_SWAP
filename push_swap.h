@@ -22,8 +22,6 @@ typedef struct s_stack_node
 	struct s_stack_node	*next;
 }	t_stack;
 
-int	stack_size(t_stack **head);
-
 void	swap(t_stack **head);
 void	sa(t_stack **a);
 void	sb(t_stack **b);

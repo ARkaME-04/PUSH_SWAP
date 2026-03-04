@@ -17,16 +17,12 @@ void	swap(t_stack **head)
 	int	index;
 	t_stack	*tmp;
 
-	if (!head)
+	if (!*head || !(*head)->next)
 		return ;
-	index = stack_size(head);
-	if (index > 1)
-	{
-		tmp = (*head)->next;
-		(*head)->next = tmp->next;
-		tmp->next = (*head);
-		*head = tmp;
-	}
+	tmp = (*head)->next;
+	(*head)->next = tmp->next;
+	tmp->next = (*head);
+	*head = tmp;
 }
 
 void	sa(t_stack **a)
