@@ -6,11 +6,11 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 13:05:01 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/04 14:02:37 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/05 08:46:01 by tandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap"
+#include "push_swap.h"
 
 void	rotate(t_stack **head)
 {
@@ -18,11 +18,11 @@ void	rotate(t_stack **head)
 
 	if (!*head || !(*head)->next)
 		return ;
-	tail = head;
+	tail =*head;
 	while (tail->next != NULL) 
 		tail = tail->next;
 	tail->next = *head;
-	*head = (*head->next);
+	*head = ((*head)->next);
 	tail->next->next = NULL;
 }
 
