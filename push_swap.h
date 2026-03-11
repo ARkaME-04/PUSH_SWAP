@@ -23,7 +23,7 @@ struct	s_stack_node
 	t_stack	*next;
 	int		value;
 	int		index;
-}
+};
 
 void	swap(t_stack **head);
 void	sa(t_stack **a);
@@ -40,5 +40,12 @@ void	reverse(t_stack **tail);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
+void	free_tab(char **tab);
+
+int		ft_isspace(int c);
+int		has_duplicate(t_stack *a, int n);
+int		ft_isdigit(int c);
+
+long	ft_atol(const char *nptr);
 
 #endif

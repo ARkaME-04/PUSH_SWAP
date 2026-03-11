@@ -12,46 +12,7 @@
 
 #include "push_swap.h"
 
-int	ft_isspace(int c)
-{
-	c = (unsigned char)c;
-	if (c == '\t' || c == '\r' || c == '\n'
-		|| c == '\f' || c == '\v' || c == ' ')
-		return (1);
-	return (0);
-}
 
-long	ft_atol(const char *nptr)
-{
-	int		i;
-	long	num;
-	long	sign;
-
-	num = 0;
-	i = 0;
-	sign = 1;
-	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		num = num * 10 + (nptr[i] - '0');
-		i++;
-	}
-	return (num * sign);
-}
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
 
 void	free_tab(char **tab)
 {

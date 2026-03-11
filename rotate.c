@@ -18,8 +18,8 @@ void	rotate(t_stack **head)
 
 	if (!*head || !(*head)->next)
 		return ;
-	tail =*head;
-	while (tail->next != NULL) 
+	tail = *head;
+	while (tail->next != NULL)
 		tail = tail->next;
 	tail->next = *head;
 	*head = ((*head)->next);

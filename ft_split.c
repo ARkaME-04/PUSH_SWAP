@@ -12,15 +12,6 @@
 
 #include "push_swap.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
@@ -47,6 +38,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	s2[j] = '\0';
 	return (s2);
 }
+
 static int	ft_len(char const *s, char c)
 {
 	int	i;

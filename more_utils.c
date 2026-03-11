@@ -41,7 +41,7 @@ void	add_bottom(t_stack **stack, t_stack *node)
 
 int	is_valid(char *str)
 {
-	int	i;
+	int		i;
 	long	conv;
 
 	if (!str || !*str)
@@ -52,7 +52,7 @@ int	is_valid(char *str)
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-			retrun (0);
+			return (0);
 		i++;
 	}
 	conv = ft_atol(str);
@@ -61,7 +61,39 @@ int	is_valid(char *str)
 	return (1);
 }
 
+void	error_exit(void)
+{
+	write(1, "Error\n", 6);
+	exit(1);
+}
+
+void	parse_tab(char **tab, t_stack **a)
+{
+	int		i;
+	long	n;
+	{
+		if (!is_valid(tab[i]))
+			error_exit();
+		n = ft_atol(tab[i]);
+		if (n > INT_MAX || n < INT_MIN)
+			error_exit();
+		if (has_duplicate(*a, (int)n))
+			error_exit();
+		add_bottom(a, new_node((int)n));
+		i++;
+	}
+}
+
 void	parse_args(int argc, char **argv, t_stack **a)
 {
+	char	**split;
 
+	if (argc == 2)
+	{
+		split = ft_split(argv[1], ' ');
+		parse_tab(split, a);
+		free_tab(split);
+	}
+	else
+		parse_tab(argv + 1, a);
 }
