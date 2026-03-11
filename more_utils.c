@@ -23,3 +23,45 @@ t_stack	*new_node(int val)
 	a->next = NULL;
 	return (a);
 }
+
+void	add_bottom(t_stack **stack, t_stack *node)
+{
+	t_stack	*tmp;
+
+	if (!*stack)
+	{
+		*stack = node;
+		return ;
+	}
+	tmp = *stack;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = node;
+}
+
+int	is_valid(char *str)
+{
+	int	i;
+	long	conv;
+
+	if (!str || !*str)
+		return (0);
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			retrun (0);
+		i++;
+	}
+	conv = ft_atol(str);
+	if (conv >= INT_MAX || conv <= INT_MIN)
+		return (0);
+	return (1);
+}
+
+void	parse_args(int argc, char **argv, t_stack **a)
+{
+
+}
