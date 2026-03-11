@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 08:45:31 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/07 09:27:09 by tandrian         ###   ########.fr       */
+/*   Updated: 2026/03/11 10:34:10 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct s_stack_node
+typedef struct s_stack_node	t_stack;
+
+struct	s_stack_node
 {
-	int			value;
-	int			index;
-	struct s_stack_node	*next;
-}	t_stack;
+	t_stack	*next;
+	int		value;
+	int		index;
+}
 
 void	swap(t_stack **head);
 void	sa(t_stack **a);
