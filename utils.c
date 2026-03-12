@@ -37,3 +37,50 @@ int	has_duplicate(t_stack *a, int n)
 	}
 	return (0);
 }
+
+int	*stack_to_array(t_stack *a, int size)
+{
+	int	i;
+	int	*res;
+
+	res = malloc(size * sizeof(t_stack));
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (a)
+	{
+		res[i] = a->value;
+		a = a->next;
+		i++;
+	}
+	return (res);
+}
+
+double	compute_disorder(t_stack *a)
+{
+	int		size;
+	int		*array;
+	int		i;
+	int		j;
+	double	mistakes;
+	double	total_pairs;
+
+	size = stack_size(a);
+	array = stack_to_array(a, size);
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (array[j] != '\0')
+		{
+			if (array[i] < array[j])
+				total_pairs += 1;
+			else
+				mistakes += 1;
+			j++;
+		}
+		i++;
+	}
+	free(array);
+	return (mistakes / total_pairs);
+}

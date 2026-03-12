@@ -12,6 +12,25 @@
 
 #include "push_swap.h"
 
+void	parse_tab(char **tab, t_stack **a)
+{
+	int		i;
+	long	n;
+
+	i = 1;
+	{
+		if (!is_valid(tab[i]))
+			error_exit();
+		n = ft_atol(tab[i]);
+		if (n > 2147483647 || n < -2147483648)
+			error_exit();
+		if (has_duplicate(*a, (int)n))
+			error_exit();
+		add_bottom(a, new_node((int)n));
+		i++;
+	}
+}
+
 void	parse_args(int argc, char **argv, t_stack **a)
 {
 	char	**split;

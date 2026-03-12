@@ -63,25 +63,18 @@ int	is_valid(char *str)
 
 void	error_exit(void)
 {
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
-void	parse_tab(char **tab, t_stack **a)
+int	stack_size(t_stack *a)
 {
-	int		i;
-	long	n;
+	int	i;
 
-	i = 1;
+	while (a)
 	{
-		if (!is_valid(tab[i]))
-			error_exit();
-		n = ft_atol(tab[i]);
-		if (n > 2147483647 || n < -2147483648)
-			error_exit();
-		if (has_duplicate(*a, (int)n))
-			error_exit();
-		add_bottom(a, new_node((int)n));
+		a = a->next;
 		i++;
 	}
+	return (0);
 }

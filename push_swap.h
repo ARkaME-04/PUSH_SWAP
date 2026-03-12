@@ -46,6 +46,7 @@ void	parse_tab(char **tab, t_stack **a);
 int		ft_isspace(int c);
 int		has_duplicate(t_stack *a, int n);
 int		ft_isdigit(int c);
+int		stack_size(t_stack *a);
 
 size_t	ft_strlen(const char *str);
 
