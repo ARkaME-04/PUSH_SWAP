@@ -56,7 +56,7 @@ int	*stack_to_array(t_stack *a, int size)
 	return (res);
 }
 
-double	compute_disorder(t_stack *a)
+double	compute_disorder(t_stack *a) // need fixes
 {
 	int		size;
 	int		*array;
