@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tandrian <tandrian@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/11 09:02:23 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/12 09:21:45 by tandrian         ###   ########.fr       */
+/*   Created: 2026/03/12 09:37:58 by tandrian          #+#    #+#             */
+/*   Updated: 2026/03/12 09:40:54 by tandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_tab(char **tab)
+void	parse_args(int argc, char **argv, t_stack **a)
 {
-	int	i;
+	char	**split;
 
-	if (!tab)
-		return ;
-	i = 0;
-	while (tab[i])
+	if (argc == 2)
 	{
-		free(tab[i]);
-		i++;
+		split = ft_split(argv[1], ' ');
+		parse_tab(split, a);
+		free_tab(split);
 	}
-	free(tab);
-}
-
-int	has_duplicate(t_stack *a, int n)
-{
-	while (a)
-	{
-		if (a->value == n)
-			return (1);
-		a = a->next;
-	}
-	return (0);
+	else
+		parse_tab(argv + 1, a);
 }

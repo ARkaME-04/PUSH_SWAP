@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 10:14:14 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/11 10:17:48 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/12 09:41:11 by tandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	is_valid(char *str)
 		i++;
 	}
 	conv = ft_atol(str);
-	if (conv >= INT_MAX || conv <= INT_MIN)
+	if (conv >= 2147483647 || conv <= -2147483648)
 		return (0);
 	return (1);
 }
@@ -71,29 +71,17 @@ void	parse_tab(char **tab, t_stack **a)
 {
 	int		i;
 	long	n;
+
+	i = 1;
 	{
 		if (!is_valid(tab[i]))
 			error_exit();
 		n = ft_atol(tab[i]);
-		if (n > INT_MAX || n < INT_MIN)
+		if (n > 2147483647 || n < -2147483648)
 			error_exit();
 		if (has_duplicate(*a, (int)n))
 			error_exit();
 		add_bottom(a, new_node((int)n));
 		i++;
 	}
-}
-
-void	parse_args(int argc, char **argv, t_stack **a)
-{
-	char	**split;
-
-	if (argc == 2)
-	{
-		split = ft_split(argv[1], ' ');
-		parse_tab(split, a);
-		free_tab(split);
-	}
-	else
-		parse_tab(argv + 1, a);
 }

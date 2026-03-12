@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 08:45:31 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/11 10:34:10 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/12 09:42:47 by tandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,15 @@ void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 void	free_tab(char **tab);
+void	parse_tab(char **tab, t_stack **a);
 
 int		ft_isspace(int c);
 int		has_duplicate(t_stack *a, int n);
 int		ft_isdigit(int c);
+
+size_t	ft_strlen(const char *str);
+
+char	**ft_split(char const *s, char c);
 
 long	ft_atol(const char *nptr);
 
