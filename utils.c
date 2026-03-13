@@ -56,31 +56,40 @@ int	*stack_to_array(t_stack *a, int size)
 	return (res);
 }
 
-double	compute_disorder(t_stack *a) // need fixes
+double	count_pairs(int *array, int size, double *total_pairs)
 {
-	int		size;
-	int		*array;
 	int		i;
 	int		j;
 	double	mistakes;
-	double	total_pairs;
 
-	size = stack_size(a);
-	array = stack_to_array(a, size);
+	mistakes = 0;
+	*total_pairs = 0;
 	i = 0;
 	while (i < size)
 	{
 		j = i + 1;
-		while (array[j] != '\0')
+		while (j < size)
 		{
-			if (array[i] < array[j])
-				total_pairs += 1;
-			else
+			*total_pairs += 1;
+			if (array[i] > array[j])
 				mistakes += 1;
 			j++;
 		}
 		i++;
 	}
+	return (mistakes);
+}
+
+double	compute_disorder(t_stack *a)
+{
+	int		size;
+	int		*array;
+	double	mistakes;
+	double	total_pairs;
+
+	size = stack_size(a);
+	array = stack_to_array(a, size);
+	mistakes = count_pairs(array, size, &total_pairs);
 	free(array);
 	return (mistakes / total_pairs);
 }
