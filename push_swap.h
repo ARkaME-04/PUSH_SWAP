@@ -42,14 +42,25 @@ void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 void	free_tab(char **tab);
 void	parse_tab(char **tab, t_stack **a);
+void	parse_args(int argc, char **argv, t_stack **a);
+void	add_bottom(t_stack **stack, t_stack *node);
+void	error_exit(void);
 
+int		is_valid(char *str);
 int		ft_isspace(int c);
 int		has_duplicate(t_stack *a, int n);
+int		*stack_to_array(t_stack *a, int size);
 int		ft_isdigit(int c);
 int		stack_size(t_stack *a);
 
+double	compute_disorder(t_stack *a);
+double	count_pairs(int *array, int size, double *total_pairs);
+
+t_stack	*new_node(int val);
+
 size_t	ft_strlen(const char *str);
 
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
 
 long	ft_atol(const char *nptr);
