@@ -17,12 +17,13 @@ void	parse_tab(char **tab, t_stack **a)
 	int		i;
 	long	n;
 
-	i = 1;
+	i = 0;
+	while (tab[i])
 	{
 		if (!is_valid(tab[i]))
 			error_exit();
 		n = ft_atol(tab[i]);
-		if (n > 2147483647 || n < -2147483648)
+		if (n > INT_MAX || n < INT_MIN)
 			error_exit();
 		if (has_duplicate(*a, (int)n))
 			error_exit();
@@ -43,4 +44,27 @@ void	parse_args(int argc, char **argv, t_stack **a)
 	}
 	else
 		parse_tab(argv + 1, a);
+}
+
+int	is_sorted(t_stack *a)
+{
+	while (a && a->next)
+	{
+		if (a->next->value < a->value)
+			return (0);
+		a = a->next;
+	}
+	return (1);
+}
+
+void	free_stack(t_stack **a)
+{
+	t_stack	*tmp;
+
+	while (*a)
+	{
+		tmp = (*a)->next;
+		free(*a);
+		*a = tmp;
+	}
 }

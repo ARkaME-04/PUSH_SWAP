@@ -71,10 +71,11 @@ int	stack_size(t_stack *a)
 {
 	int	i;
 
+	i = 0;
 	while (a)
 	{
 		a = a->next;
 		i++;
 	}
-	return (0);
+	return (i);
 }
