@@ -23,6 +23,7 @@ struct	s_stack_node
 {
 	t_stack	*next;
 	int		value;
+	int		rank;
 };
 
 void	swap(t_stack **head);
