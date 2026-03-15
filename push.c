@@ -24,7 +24,7 @@ void	push(t_stack **src, t_stack **dst)
 	*dst = tmp;
 }
 
-void	pa(t_stack **b, t_stack **a)
+void	pa(t_stack **a, t_stack **b)
 {
 	push(b, a);
 	write(1, "pa\n", 3);
