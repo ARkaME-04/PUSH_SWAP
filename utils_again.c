@@ -62,3 +62,13 @@ int	ft_isdigit(int c)
 		return (1);
 	return (0);
 }
+
+int	ft_sqroot(int n)
+{
+	int	i;
+
+	i = 1;
+	while (i * i <= n)
+		i++;
+	return (i - 1);
+}

@@ -19,16 +19,16 @@ void	sort_array(int *array, int size)
 	int	tmp;
 
 	j = 0;
-	while (j < size - 1)
+	while (j < size)
 	{
-		i = 0;
-		while (i < size - 1)
+		i = j + 1;
+		while (i < size)
 		{
-			if (array[i] > array[i + 1])
+			if (array[j] > array[i])
 			{
-				tmp = array[i];
-				array[i] = array[i + 1];
-				array[i + 1] = tmp;
+				tmp = array[j];
+				array[j] = array[i];
+				array[i] = tmp;
 			}
 			i++;
 		}
@@ -36,23 +36,92 @@ void	sort_array(int *array, int size)
 	}
 }
 
-void	rank_node(t_stack *a)
-{
-	
-}
-
 void	assign_ranks(t_stack *a)
 {
-	int	size;
-	int	*array;
+	int		size;
+	int		*array;
+	int		i;
+	t_stack	*tmp;
 
 	size = stack_size(a);
 	array = (stack_to_array(a, size));
 	sort_array(array, size);
+	tmp = a;
+	while (tmp)
+	{
+		i = 0;
+		while (i < size)
+		{
+			if (tmp->value == array[i])
+			{
+				tmp->rank = i;
+				break ;
+			}
+			i++;
+		}
+		tmp = tmp->next;
+	}
+	free(array);
 }
 
-
-void	medium_sort(t_stack **a, t_stack **b)
+int	chunk_done(t_stack *a, int current_chunk)
 {
+	while (a)
+	{
+		if (a->rank >= current_chunk)
+			return (0);
+		a = a->next;
+	}
+	return (1);
+}
 
+int	find_max_pos(t_stack *b)
+{
+	int	max;
+	int	max_pos;
+	int	pos;
+
+	max = -1;
+	max_pos = 0;
+	pos = 0;
+	while (b)
+	{
+		if (b->rank > max)
+		{
+			max = b->rank;
+			max_pos = pos;
+		}
+		pos++;
+		b = b->next;
+	}
+	return (max_pos);
+}
+
+void	sort_medium(t_stack **a, t_stack **b)
+{
+	int	chunk_size;
+	int	current_chunk;
+
+	if (stack_size(*a) <= 3)
+	{
+		sort_simple(a, b);
+		return ;
+	}
+	assign_ranks(*a);
+	chunk_size = ft_sqroot(stack_size(*a));
+	current_chunk = stack_size(*a) - chunk_size;
+	while (*a)
+	{
+		if ((*a)->rank >= current_chunk)
+			pb(a, b);
+		else
+			ra(a);
+		if (chunk_done(*a, current_chunk))
+			current_chunk -= chunk_size;
+	}
+	while (*b)
+	{
+		rotate_top_b(b, find_max_pos(*b));
+		pa(a, b);
+	}
 }

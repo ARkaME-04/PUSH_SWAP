@@ -48,7 +48,9 @@ void	parse_args(int argc, char **argv, t_stack **a);
 void	add_bottom(t_stack **stack, t_stack *node);
 void	error_exit(void);
 void	sort_simple(t_stack **a, t_stack **b);
+void	sort_medium(t_stack **a, t_stack **b);
 void	free_stack(t_stack **a);
+void	rotate_top_b(t_stack **b, int pos);
 
 int		is_sorted(t_stack *a);
 int		is_valid(char *str);
@@ -57,6 +59,7 @@ int		has_duplicate(t_stack *a, int n);
 int		*stack_to_array(t_stack *a, int size);
 int		ft_isdigit(int c);
 int		stack_size(t_stack *a);
+int		ft_sqroot(int n);
 
 double	compute_disorder(t_stack *a);
 double	count_pairs(int *array, int size, double *total_pairs);

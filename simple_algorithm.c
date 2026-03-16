@@ -34,7 +34,7 @@ int	find_min_pos(t_stack *a)
 	return (min_pos);
 }
 
-static void	rotate_top(t_stack **a, int pos)
+void	rotate_top_a(t_stack **a, int pos)
 {
 	int	size;
 	int	i;
@@ -54,6 +54,31 @@ static void	rotate_top(t_stack **a, int pos)
 		while (i < size - pos)
 		{
 			rra(a);
+			i++;
+		}
+	}
+}
+
+void	rotate_top_b(t_stack **b, int pos)
+{
+	int	size;
+	int	i;
+
+	i = 0;
+	size = stack_size(*b);
+	if (pos <= size / 2)
+	{
+		while (i < pos)
+		{
+			rb(b);
+			i++;
+		}
+	}
+	else
+	{
+		while (i < size - pos)
+		{
+			rrb(b);
 			i++;
 		}
 	}
@@ -90,7 +115,7 @@ void	sort_simple(t_stack **a, t_stack **b)
 {
 	while (stack_size(*a) > 3)
 	{
-		rotate_top(a, find_min_pos(*a));
+		rotate_top_a(a, find_min_pos(*a));
 		pb(a, b);
 	}
 	if (stack_size(*a) == 2)
