@@ -58,7 +58,7 @@ int	is_valid(char *str)
 		i++;
 	}
 	conv = ft_atol(str);
-	if (conv > 2147483647 || conv < -2147483648)
+	if (conv > INT_MAX || conv < INT_MIN)
 		return (0);
 	return (1);
 }
