@@ -38,21 +38,17 @@ void	parse_args(int argc, char **argv, t_stack **a)
 	int		i;
 
 	i = 1;
-	if (argc == 2)
+	while (i < argc)
 	{
-		split = ft_split(argv[1], ' ');
+		split = ft_split(argv[i], ' ');
+		if (!split || !split[0])
+		{
+			free_tab(split);
+			error_exit();
+		}
 		parse_tab(split, a);
 		free_tab(split);
-	}
-	else
-	{
-		while (i < argc)
-		{
-			split = ft_split(argv[i], ' ');
-			parse_tab(split, a);
-			free_tab(split);
-			i++;
-		}
+		i++;
 	}
 }
 
