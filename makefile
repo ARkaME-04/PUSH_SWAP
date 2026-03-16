@@ -23,9 +23,10 @@ SRCS =	main.c \
 		parse_args.c \
 		utils.c \
 		utils_again.c \
-		simple_algorithm.c \
 		ft_split.c \
-		medium_algorithm.c
+		simple_algorithm.c \
+		medium_algorithm.c \
+		complex_algorithm.c
 
 OBJS = $(SRCS:.c=.o)
 
