@@ -102,11 +102,6 @@ void	sort_medium(t_stack **a, t_stack **b)
 	int	chunk_size;
 	int	current_chunk;
 
-	if (stack_size(*a) <= 3)
-	{
-		sort_simple(a, b);
-		return ;
-	}
 	assign_ranks(*a);
 	chunk_size = ft_sqroot(stack_size(*a));
 	current_chunk = stack_size(*a) - chunk_size;

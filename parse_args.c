@@ -35,7 +35,9 @@ void	parse_tab(char **tab, t_stack **a)
 void	parse_args(int argc, char **argv, t_stack **a)
 {
 	char	**split;
+	int		i;
 
+	i = 1;
 	if (argc == 2)
 	{
 		split = ft_split(argv[1], ' ');
@@ -43,7 +45,15 @@ void	parse_args(int argc, char **argv, t_stack **a)
 		free_tab(split);
 	}
 	else
-		parse_tab(argv + 1, a);
+	{
+		while (i < argc)
+		{
+			split = ft_split(argv[i], ' ');
+			parse_tab(split, a);
+			free_tab(split);
+			i++;
+		}
+	}
 }
 
 int	is_sorted(t_stack *a)
