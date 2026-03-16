@@ -50,6 +50,7 @@ void	error_exit(void);
 void	sort_simple(t_stack **a, t_stack **b);
 void	sort_medium(t_stack **a, t_stack **b);
 void	sort_complex(t_stack **a, t_stack **b);
+void	sort_adaptive(t_stack **a, t_stack **b);
 void	free_stack(t_stack **a);
 void	rotate_top_a(t_stack **a, int pos);
 void	rotate_top_b(t_stack **b, int pos);
@@ -64,6 +65,7 @@ int		ft_isdigit(int c);
 int		stack_size(t_stack *a);
 int		ft_sqroot(int n);
 int		find_min_pos(t_stack *a);
+int		flagged(char *str);
 
 double	compute_disorder(t_stack *a);
 double	count_pairs(int *array, int size, double *total_pairs);
