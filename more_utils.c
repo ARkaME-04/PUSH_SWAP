@@ -49,6 +49,8 @@ int	is_valid(char *str)
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
+	if (!str[i])
+		return (0);
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
@@ -56,7 +58,7 @@ int	is_valid(char *str)
 		i++;
 	}
 	conv = ft_atol(str);
-	if (conv >= 2147483647 || conv <= -2147483648)
+	if (conv > 2147483647 || conv < -2147483648)
 		return (0);
 	return (1);
 }

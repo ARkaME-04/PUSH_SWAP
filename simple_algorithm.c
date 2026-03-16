@@ -102,5 +102,4 @@ void	sort_simple(t_stack **a, t_stack **b)
 		sort_three(a);
 	while (*b)
 		pa(a, b);
-	rotate_top(a, find_min_pos(*a));
 }
