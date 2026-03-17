@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 18:51:48 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/15 18:51:48 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/17 12:05:26 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	find_max_pos(t_stack *b)
 	return (max_pos);
 }
 
-void	sort_medium(t_stack **a, t_stack **b)
+void	sort_medium(t_stack **a, t_stack **b, t_bench *bench)
 {
 	int	chunk_size;
 	int	current_chunk;
@@ -108,15 +108,15 @@ void	sort_medium(t_stack **a, t_stack **b)
 	while (*a)
 	{
 		if ((*a)->rank >= current_chunk)
-			pb(a, b);
+			pb(a, b, bench);
 		else
-			ra(a);
+			ra(a, bench);
 		if (chunk_done(*a, current_chunk))
 			current_chunk -= chunk_size;
 	}
 	while (*b)
 	{
-		rotate_top_b(b, find_max_pos(*b));
-		pa(a, b);
+		rotate_top_b(b, find_max_pos(*b), bench);
+		pa(a, b, bench);
 	}
 }

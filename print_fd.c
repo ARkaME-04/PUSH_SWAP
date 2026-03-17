@@ -1,47 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   print_fd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/04 11:46:44 by tandrian          #+#    #+#             */
-/*   Updated: 2026/03/17 09:15:42 by rhrandri         ###   ########.fr       */
+/*   Created: 2026/03/17 10:57:52 by rhrandri          #+#    #+#             */
+/*   Updated: 2026/03/17 13:20:57 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_stack **src, t_stack **dst)
+void	ft_putchar_fd(char c, int fd)
 {
-	t_stack	*tmp;
-
-	if (!src || !*src)
-		return ;
-	tmp = *src;
-	*src = (*src)->next;
-	tmp->next = *dst;
-	*dst = tmp;
+	write(fd, &c, 1);
 }
 
-void	pa(t_stack **a, t_stack **b, t_bench *bench)
+void	ft_putstr_fd(char *str, int fd)
 {
-	push(b, a);
-	write(1, "pa\n", 3);
-	if (bench)
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		bench->pa++;
-		bench->total++;
+		write(fd, &str[i], 1);
+		i++;
 	}
 }
 
-void	pb(t_stack **a, t_stack **b, t_bench *bench)
+void	ft_putnbr_fd(int n, int fd)
 {
-	push(a, b);
-	write(1, "pb\n", 3);
-	if (bench)
+	long	nbr;
+
+	nbr = n;
+	if (nbr < 0)
 	{
-		bench->pb++;
-		bench->total++;
+		ft_putchar_fd('-', fd);
+		nbr = -nbr;
 	}
+	if (nbr >= 10)
+	{
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putchar_fd((nbr % 10) + '0', fd);
+	}
+	else
+		ft_putchar_fd(nbr + '0', fd);
 }

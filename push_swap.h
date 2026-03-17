@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 08:45:31 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/12 09:42:47 by tandrian         ###   ########.fr       */
+/*   Updated: 2026/03/17 13:22:05 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,34 +27,57 @@ struct	s_stack_node
 	int		rank;
 };
 
+typedef struct s_bench
+{
+	int	ss;
+	int	sa;
+	int	sb;
+	int	pa;
+	int	pb;
+	int	rr;
+	int	ra;
+	int	rb;
+	int	rrr;
+	int	rra;
+	int	rrb;
+	int	total;
+}	t_bench;
+
 void	swap(t_stack **head);
-void	sa(t_stack **a);
-void	sb(t_stack **b);
-void	ss(t_stack **a, t_stack **b);
+void	sa(t_stack **a, t_bench *bench);
+void	sb(t_stack **b, t_bench *bench);
+void	ss(t_stack **a, t_stack **b, t_bench *bench);
 void	push(t_stack **src, t_stack **dst);
-void	pa(t_stack **a, t_stack **b);
-void	pb(t_stack **b, t_stack **a);
+void	pa(t_stack **a, t_stack **b, t_bench *bench);
+void	pb(t_stack **b, t_stack **a, t_bench *bench);
 void	rotate(t_stack **head);
-void	ra(t_stack **a);
-void	rb(t_stack **b);
-void	rr(t_stack **a, t_stack **b);
+void	ra(t_stack **a, t_bench *bench);
+void	rb(t_stack **b, t_bench *bench);
+void	rr(t_stack **a, t_stack **b, t_bench *bench);
 void	reverse(t_stack **tail);
-void	rra(t_stack **a);
-void	rrb(t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
+void	rra(t_stack **a, t_bench *bench);
+void	rrb(t_stack **b, t_bench *bench);
+void	rrr(t_stack **a, t_stack **b, t_bench *bench);
 void	free_tab(char **tab);
 void	parse_tab(char **tab, t_stack **a);
 void	parse_args(int argc, char **argv, t_stack **a);
 void	add_bottom(t_stack **stack, t_stack *node);
 void	error_exit(void);
-void	sort_simple(t_stack **a, t_stack **b);
-void	sort_medium(t_stack **a, t_stack **b);
-void	sort_complex(t_stack **a, t_stack **b);
-void	sort_adaptive(t_stack **a, t_stack **b);
+void	sort_simple(t_stack **a, t_stack **b, t_bench *bench);
+void	sort_medium(t_stack **a, t_stack **b, t_bench *bench);
+void	sort_complex(t_stack **a, t_stack **b, t_bench *bench);
+void	sort_adaptive(t_stack **a, t_stack **b, t_bench *bench);
 void	free_stack(t_stack **a);
-void	rotate_top_a(t_stack **a, int pos);
-void	rotate_top_b(t_stack **b, int pos);
+void	rotate_top_a(t_stack **a, int pos, t_bench *bench);
+void	rotate_top_b(t_stack **b, int pos, t_bench *bench);
+void	check_flag(char *str, t_stack **a, t_stack **b, t_bench *bench);
 void	assign_ranks(t_stack *a);
+void	ft_putstr_fd(char *str, int fd);
+void	ft_putnbr_fd(int n, int fd);
+void	handle_input(int argc, char **argv, t_stack **a);
+void	handle_sort(char **argv, t_stack **a, t_stack **b, t_bench *bench);
+void	init_bench(t_bench *bench);
+void	print_bench(t_bench *bench, double disorder, char *flag);
 
 int		is_sorted(t_stack *a);
 int		is_valid(char *str);
@@ -65,10 +88,11 @@ int		ft_isdigit(int c);
 int		stack_size(t_stack *a);
 int		ft_sqroot(int n);
 int		find_min_pos(t_stack *a);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		flagged(char *str);
 
 double	compute_disorder(t_stack *a);
-double	count_pairs(int *array, int size, double *total_pairs);
+double	count_pairs(int *array, int size);
 
 t_stack	*new_node(int val);
 
@@ -76,6 +100,7 @@ size_t	ft_strlen(const char *str);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
+char	*flag_name(char *flag, double disorder);
 
 long	ft_atol(const char *nptr);
 

@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 18:37:12 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/16 18:37:12 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/17 10:47:14 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,20 @@ int	flagged(char *str)
 		return (3);
 	if (ft_strncmp(str, "--adaptive", 10) == 0)
 		return (4);
+	if (ft_strncmp(str, "--bench", 7) == 0)
+		return (5);
 	return (0);
 }
 
-void	sort_adaptive(t_stack **a, t_stack **b)
+void	sort_adaptive(t_stack **a, t_stack **b, t_bench *bench)
 {
 	double	disorder;
 
 	disorder = compute_disorder(*a);
 	if (disorder < 0.2)
-		sort_simple(a, b);
+		sort_simple(a, b, bench);
 	else if (disorder >= 0.2 && disorder < 0.5)
-		sort_medium(a, b);
+		sort_medium(a, b, bench);
 	else
-		sort_complex(a, b);
+		sort_complex(a, b, bench);
 }

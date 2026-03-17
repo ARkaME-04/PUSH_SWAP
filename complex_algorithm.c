@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 12:49:03 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/16 12:59:10 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/17 12:06:09 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	count_bit(int size)
 	return (i);
 }
 
-void	sort_complex(t_stack **a, t_stack **b)
+void	sort_complex(t_stack **a, t_stack **b, t_bench *bench)
 {
 	int	size;
 	int	bit_size;
@@ -42,14 +42,14 @@ void	sort_complex(t_stack **a, t_stack **b)
 		while (i < size)
 		{
 			if (((*a)->rank >> bit) & 1)
-				ra(a);
+				ra(a, bench);
 			else
-				pb(a, b);
+				pb(a, b, bench);
 			i++;
 		}
 		while (*b)
-			pa(a, b);
+			pa(a, b, bench);
 		bit++;
 	}
-	rotate_top_a(a, find_min_pos(*a));
+	rotate_top_a(a, find_min_pos(*a), bench);
 }

@@ -6,7 +6,7 @@
 #    By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/14 19:04:04 by rhrandri          #+#    #+#              #
-#    Updated: 2026/03/14 19:04:04 by rhrandri         ###   ########.fr        #
+#    Updated: 2026/03/17 12:10:02 by rhrandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,10 @@ SRCS =	main.c \
 		simple_algorithm.c \
 		medium_algorithm.c \
 		complex_algorithm.c \
-		adaptive.c
+		adaptive.c \
+		print_fd.c \
+		print_ops.c \
+		benchmark.c
 
 OBJS = $(SRCS:.c=.o)
 

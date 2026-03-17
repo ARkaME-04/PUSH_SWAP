@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 17:14:25 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/13 17:14:25 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/17 10:44:29 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	find_min_pos(t_stack *a)
 	return (min_pos);
 }
 
-void	rotate_top_a(t_stack **a, int pos)
+void	rotate_top_a(t_stack **a, int pos, t_bench *bench)
 {
 	int	size;
 	int	i;
@@ -45,7 +45,7 @@ void	rotate_top_a(t_stack **a, int pos)
 	{
 		while (i < pos)
 		{
-			ra(a);
+			ra(a, bench);
 			i++;
 		}
 	}
@@ -53,13 +53,13 @@ void	rotate_top_a(t_stack **a, int pos)
 	{
 		while (i < size - pos)
 		{
-			rra(a);
+			rra(a, bench);
 			i++;
 		}
 	}
 }
 
-void	rotate_top_b(t_stack **b, int pos)
+void	rotate_top_b(t_stack **b, int pos, t_bench *bench)
 {
 	int	size;
 	int	i;
@@ -70,7 +70,7 @@ void	rotate_top_b(t_stack **b, int pos)
 	{
 		while (i < pos)
 		{
-			rb(b);
+			rb(b, bench);
 			i++;
 		}
 	}
@@ -78,13 +78,13 @@ void	rotate_top_b(t_stack **b, int pos)
 	{
 		while (i < size - pos)
 		{
-			rrb(b);
+			rrb(b, bench);
 			i++;
 		}
 	}
 }
 
-static void	sort_three(t_stack **a)
+static void	sort_three(t_stack **a, t_bench *bench)
 {
 	int	top;
 	int	mid;
@@ -94,37 +94,37 @@ static void	sort_three(t_stack **a)
 	mid = (*a)->next->value;
 	bot = (*a)->next->next->value;
 	if (top > mid && mid < bot && top < bot)
-		sa(a);
+		sa(a, bench);
 	else if ((top > mid && mid > bot))
 	{
-		sa(a);
-		rra(a);
+		sa(a, bench);
+		rra(a, bench);
 	}
 	else if ((top < mid && mid > bot && top < bot))
 	{
-		rra(a);
-		sa(a);
+		rra(a, bench);
+		sa(a, bench);
 	}
 	else if (top > mid && mid < bot && top > bot)
-		ra(a);
+		ra(a, bench);
 	else if (top < mid && mid > bot && top > bot)
-		rra(a);
+		rra(a, bench);
 }
 
-void	sort_simple(t_stack **a, t_stack **b)
+void	sort_simple(t_stack **a, t_stack **b, t_bench *bench)
 {
 	while (stack_size(*a) > 3)
 	{
-		rotate_top_a(a, find_min_pos(*a));
-		pb(a, b);
+		rotate_top_a(a, find_min_pos(*a), bench);
+		pb(a, b, bench);
 	}
 	if (stack_size(*a) == 2)
 	{
 		if ((*a)->value > (*a)->next->value)
-			sa(a);
+			sa(a, bench);
 	}
 	else
-		sort_three(a);
+		sort_three(a, bench);
 	while (*b)
-		pa(a, b);
+		pa(a, b, bench);
 }
