@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 19:34:21 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/11 19:34:21 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/17 07:53:52 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ long	ft_atol(const char *nptr)
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
+		if (num > (LONG_MAX - (nptr[i] - '0') / 10))
+			return (LONG_MAX);
 		num = num * 10 + (nptr[i] - '0');
 		i++;
 	}
