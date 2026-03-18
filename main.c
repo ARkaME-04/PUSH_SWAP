@@ -6,23 +6,11 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 11:50:32 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/17 12:11:14 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/18 10:48:45 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	check_flag(char *str, t_stack **a, t_stack **b, t_bench *bench)
-{
-	if (flagged(str) == 1)
-		sort_simple(a, b, bench);
-	else if (flagged(str) == 2)
-		sort_medium(a, b, bench);
-	else if (flagged(str) == 3)
-		sort_complex(a, b, bench);
-	else
-		sort_adaptive(a, b, bench);
-}
 
 int	main(int argc, char **argv)
 {

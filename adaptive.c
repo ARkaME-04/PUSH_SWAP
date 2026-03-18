@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 18:37:12 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/17 10:47:14 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:10:22 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,16 @@ void	sort_adaptive(t_stack **a, t_stack **b, t_bench *bench)
 		sort_medium(a, b, bench);
 	else
 		sort_complex(a, b, bench);
+}
+
+void	check_flag(char *str, t_stack **a, t_stack **b, t_bench *bench)
+{
+	if (flagged(str) == 1)
+		sort_simple(a, b, bench);
+	else if (flagged(str) == 2)
+		sort_medium(a, b, bench);
+	else if (flagged(str) == 3)
+		sort_complex(a, b, bench);
+	else
+		sort_adaptive(a, b, bench);
 }

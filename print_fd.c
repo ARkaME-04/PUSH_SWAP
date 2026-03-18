@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 10:57:52 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/17 13:20:57 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:12:58 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,20 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	else
 		ft_putchar_fd(nbr + '0', fd);
+}
+
+void	ft_put_double(double n, int fd)
+{
+	int	decimal;
+	int	integer;
+
+	integer = (int)n;
+	decimal = (int)((n - integer) * 100);
+	if (decimal < 0)
+		decimal = -decimal;
+	ft_putnbr_fd(integer, fd);
+	ft_putstr_fd(".", fd);
+	if (decimal < 10)
+		ft_putstr_fd("0", fd);
+	ft_putnbr_fd(decimal, fd);
 }

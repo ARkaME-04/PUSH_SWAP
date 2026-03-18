@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 08:45:31 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/17 13:22:05 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:08:12 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <limits.h>
 
 typedef struct s_stack_node	t_stack;
@@ -74,6 +73,7 @@ void	check_flag(char *str, t_stack **a, t_stack **b, t_bench *bench);
 void	assign_ranks(t_stack *a);
 void	ft_putstr_fd(char *str, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_put_double(double n, int fd);
 void	handle_input(int argc, char **argv, t_stack **a);
 void	handle_sort(char **argv, t_stack **a, t_stack **b, t_bench *bench);
 void	init_bench(t_bench *bench);
