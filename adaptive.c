@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 18:37:12 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/18 11:10:22 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/18 16:04:09 by tandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 int	flagged(char *str)
 {
-	if (ft_strncmp(str, "--simple", 8) == 0)
+	if (ft_strncmp(str, "--simple", 9) == 0)
 		return (1);
-	if (ft_strncmp(str, "--medium", 8) == 0)
+	if (ft_strncmp(str, "--medium", 9) == 0)
 		return (2);
-	if (ft_strncmp(str, "--complex", 9) == 0)
+	if (ft_strncmp(str, "--complex", 10) == 0)
 		return (3);
-	if (ft_strncmp(str, "--adaptive", 10) == 0)
+	if (ft_strncmp(str, "--adaptive", 11) == 0)
 		return (4);
-	if (ft_strncmp(str, "--bench", 7) == 0)
+	if (ft_strncmp(str, "--bench", 8) == 0)
 		return (5);
 	return (0);
 }
