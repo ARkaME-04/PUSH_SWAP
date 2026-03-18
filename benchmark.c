@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 10:12:54 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/17 13:16:01 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/18 14:42:27 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ char	*flag_name(char *flag, double disorder)
 	else
 	{
 		if (disorder < 0.2)
-			return ("Adaptive / O(n^2)");
+			return ("Adaptive / O(n²)");
 		else if (disorder >= 0.2 && disorder < 0.5)
 			return ("Adaptive / O(n√n)");
 		else
-			return ("Adaptive / O(n log n)");
+			return ("Adaptive / O(nlog n)");
 	}
 }
 

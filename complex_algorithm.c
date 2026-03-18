@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 12:49:03 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/17 12:06:09 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/18 14:59:57 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	sort_complex(t_stack **a, t_stack **b, t_bench *bench)
 	bit = 0;
 	while (bit < bit_size)
 	{
+		if (is_sorted(*a) && !(*b))
+			return ;
 		i = 0;
 		while (i < size)
 		{
