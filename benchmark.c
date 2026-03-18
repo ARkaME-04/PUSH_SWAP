@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 10:12:54 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/18 14:42:27 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:14:20 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*flag_name(char *flag, double disorder)
 	else if (flagged(flag) == 2)
 		return ("Medium / O(n√n)");
 	else if (flagged(flag) == 3)
-		return ("Complex / O(n log n)");
+		return ("Complex / O(nlog n)");
 	else
 	{
 		if (disorder < 0.2)
