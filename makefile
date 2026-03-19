@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+         #
+#    By: tandrian <tandrian@student.42antanana      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/03/14 19:04:04 by rhrandri          #+#    #+#              #
-#    Updated: 2026/03/18 10:36:13 by rhrandri         ###   ########.fr        #
+#    Created: 2026/03/19 10:20:39 by tandrian          #+#    #+#              #
+#    Updated: 2026/03/19 10:20:44 by tandrian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
