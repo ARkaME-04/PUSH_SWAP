@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 08:45:31 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/18 11:08:12 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/19 11:40:36 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	free_tab(char **tab);
 void	parse_tab(char **tab, t_stack **a);
 void	parse_args(int argc, char **argv, t_stack **a);
 void	add_bottom(t_stack **stack, t_stack *node);
-void	error_exit(void);
+void	error_exit(t_stack **a, t_stack **b);
 void	sort_simple(t_stack **a, t_stack **b, t_bench *bench);
 void	sort_medium(t_stack **a, t_stack **b, t_bench *bench);
 void	sort_complex(t_stack **a, t_stack **b, t_bench *bench);

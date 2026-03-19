@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tandrian <tandrian@student.42antanana      +#+  +:+       +#+        */
+/*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 09:37:58 by tandrian          #+#    #+#             */
-/*   Updated: 2026/03/12 09:40:54 by tandrian         ###   ########.fr       */
+/*   Updated: 2026/03/19 11:49:56 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,18 @@ void	parse_tab(char **tab, t_stack **a)
 	while (tab[i])
 	{
 		if (!is_valid(tab[i]))
-			error_exit();
+		{
+			free_tab(tab);
+			error_exit(a, NULL);
+		}
 		n = ft_atol(tab[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			error_exit();
+			error_exit(a, NULL);
 		if (has_duplicate(*a, (int)n))
-			error_exit();
+		{
+			free_tab(tab);
+			error_exit(a, NULL);
+		}
 		add_bottom(a, new_node((int)n));
 		i++;
 	}
@@ -43,8 +49,9 @@ void	parse_args(int argc, char **argv, t_stack **a)
 		split = ft_split(argv[i], ' ');
 		if (!split || !split[0])
 		{
-			free_tab(split);
-			error_exit();
+			if (split)
+				free_tab(split);
+			error_exit(a, NULL);
 		}
 		parse_tab(split, a);
 		free_tab(split);
@@ -67,6 +74,8 @@ void	free_stack(t_stack **a)
 {
 	t_stack	*tmp;
 
+	if (!a || !*a)
+		return ;
 	while (*a)
 	{
 		tmp = (*a)->next;

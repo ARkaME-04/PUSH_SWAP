@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   more_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tandrian <tandrian@student.42antanana      +#+  +:+       +#+        */
+/*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:08:25 by tandrian          #+#    #+#             */
-/*   Updated: 2026/03/19 10:08:29 by tandrian         ###   ########.fr       */
+/*   Updated: 2026/03/19 11:40:09 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,10 @@ int	is_valid(char *str)
 	return (1);
 }
 
-void	error_exit(void)
+void	error_exit(t_stack **a, t_stack **b)
 {
+	free_stack(a);
+	free_stack(b);
 	write(2, "Error\n", 6);
 	exit(1);
 }
