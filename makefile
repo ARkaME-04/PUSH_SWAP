@@ -14,43 +14,43 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS =	main.c \
-		push.c \
-		swap.c \
-		rotate.c \
-		reverse.c \
-		more_utils.c \
-		parse_args.c \
-		utils.c \
-		utils_again.c \
-		ft_split.c \
-		simple_algorithm.c \
-		medium_algorithm.c \
-		complex_algorithm.c \
-		adaptive.c \
-		print_fd.c \
-		print_ops.c \
-		benchmark.c
+SRCS =	./src/main.c \
+		./src/push.c \
+		./src/swap.c \
+		./src/rotate.c \
+		./src/reverse.c \
+		./src/more_utils.c \
+		./src/parse_args.c \
+		./src/utils.c \
+		./src/utils_again.c \
+		./src/ft_split.c \
+		./src/simple_algorithm.c \
+		./src/medium_algorithm.c \
+		./src/complex_algorithm.c \
+		./src/adaptive.c \
+		./src/print_fd.c \
+		./src/print_ops.c \
+		./src/benchmark.c
 
-BONUS_SRCS = checker.c \
-			 push.c \
-			 swap.c \
-			 rotate.c \
-			 reverse.c \
-			 more_utils.c \
-			 parse_args.c \
-			 utils.c \
-			 utils_again.c \
-			 ft_split.c \
-			 simple_algorithm.c \
-			 medium_algorithm.c \
-			 complex_algorithm.c \
-			 adaptive.c \
-			 print_fd.c \
-			 print_ops.c \
-			 benchmark.c \
-			 get_next_line.c \
-			 get_next_line_utils.c
+BONUS_SRCS = ./bonus/checker.c \
+			 ./src/push.c \
+			 ./src/swap.c \
+			 ./src/rotate.c \
+			 ./src/reverse.c \
+			 ./src/more_utils.c \
+			 ./src/parse_args.c \
+			 ./src/utils.c \
+			 ./src/utils_again.c \
+			 ./src/ft_split.c \
+			 ./src/simple_algorithm.c \
+			 ./src/medium_algorithm.c \
+			 ./src/complex_algorithm.c \
+			 ./src/adaptive.c \
+			 ./src/print_fd.c \
+			 ./src/print_ops.c \
+			 ./src/benchmark.c \
+			 ./bonus/get_next_line.c \
+			 ./bonus/get_next_line_utils.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include "push_swap.h"
+#include "../include/get_next_line.h"
+#include "../include/push_swap.h"
 
 void	execute_rest(char *op, t_stack **a, t_stack **b)
 {
@@ -30,7 +30,7 @@ void	execute_rest(char *op, t_stack **a, t_stack **b)
 		rotate(b);
 	}
 	else
-		error_exit();
+		error_exit(a, b);
 }
 
 void	execute_op(char *op, t_stack **a, t_stack **b)

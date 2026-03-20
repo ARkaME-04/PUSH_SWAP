@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include "push_swap.h"
+#include "../include/get_next_line.h"
+#include "../include/push_swap.h"
 
 char	*fill_stash(char *stash, char *buf)
 {
