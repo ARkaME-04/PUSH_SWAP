@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 08:45:31 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/19 11:40:36 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/23 09:13:12 by tandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	rotate(t_stack **head);
 void	ra(t_stack **a, t_bench *bench);
 void	rb(t_stack **b, t_bench *bench);
 void	rr(t_stack **a, t_stack **b, t_bench *bench);
-void	reverse(t_stack **tail);
+void	reverse(t_stack **head);
 void	rra(t_stack **a, t_bench *bench);
 void	rrb(t_stack **b, t_bench *bench);
 void	rrr(t_stack **a, t_stack **b, t_bench *bench);

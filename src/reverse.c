@@ -6,26 +6,26 @@
 /*   By: tandrian <tandrian@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:05:57 by tandrian          #+#    #+#             */
-/*   Updated: 2026/03/19 10:06:03 by tandrian         ###   ########.fr       */
+/*   Updated: 2026/03/23 09:09:54 by tandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	reverse(t_stack **tail)
+void	reverse(t_stack **head)
 {
-	t_stack	*head;
+	t_stack	*tail;
 	t_stack	*last;
 
-	if (!*tail || !(*tail)->next)
+	if (!*head || !(*head)->next)
 		return ;
-	head = *tail;
-	while (head->next->next != NULL)
-		head = head->next;
-	last = head->next;
-	last->next = *tail;
-	*tail = last;
-	head->next = NULL;
+	tail = *head;
+	while (tail->next->next != NULL)
+		tail = tail->next;
+	last = tail->next;
+	last->next = *head;
+	*head = last;
+	tail->next = NULL;
 }
 
 void	rra(t_stack **a, t_bench *bench)
