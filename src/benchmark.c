@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 10:12:54 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/24 08:40:01 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/24 08:48:36 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ void	handle_input(int argc, char **argv, t_stack **a)
 	if (flagged(argv[1]) == 5)
 	{
 		if (argc > 2 && flagged(argv[2]))
+		{
+			if (flagged(argv[2]) == 5)
+				error_exit(a, NULL);
 			parse_args(argc - 2, argv + 2, a);
+		}
 		else if (argc > 2)
 			parse_args(argc - 1, argv + 1, a);
 	}
