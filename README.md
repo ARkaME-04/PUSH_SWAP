@@ -24,14 +24,16 @@ make re     # recompiles everything
 ```
 
 ### Usage
+- Basic usage:
 ```bash
-# basic usage
 ./push_swap 5 4 3 2 1
 
-# with quoted string
+# with quotes
 ./push_swap "5 4 3 2 1"
-
-# force a specific strategy
+```
+- Usage with specificity:
+```bash
+# with specific strategy
 ./push_swap --simple 5 4 3 2 1
 ./push_swap --medium 5 4 3 2 1
 ./push_swap --complex 5 4 3 2 1
@@ -40,8 +42,9 @@ make re     # recompiles everything
 # benchmark mode
 ./push_swap --bench 5 4 3 2 1
 ./push_swap --bench --complex 5 4 3 2 1
-
-# verify with checker
+```
+- Usage with bonus checker:
+```bash
 ./push_swap 5 4 3 2 1 | ./checker 5 4 3 2 1
 ```
 
@@ -96,13 +99,13 @@ A value of 0 means perfectly sorted, 1 means worst possible order.
 ## Resources
 
 ### References
-- [Wikipedia - Radix Sort](https://en.wikipedia.org/wiki/Radix_sort)
-- [Wikipedia - Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort)
-- [Big-O Notation Guide](https://www.bigocheatsheet.com/)
-- [Sorting Algorithms Visualized](https://visualgo.net/en/sorting)
+- [Selection Sort](https://www.geeksforgeeks.org/dsa/selection-sort-algorithm-2/)
+- [Chunk Base Sorting](https://algo.monster/liteproblems/769)
+- [Radix Sort](https://www.geeksforgeeks.org/dsa/radix-sort/)
+- [Push Swap Visualizer](https://push-swap42-visualizer.vercel.app/)
 
 ### AI Usage
-Claude (Anthropic) was used throughout this project for:
+AI was used throughout this project for:
 - Explaining algorithmic concepts (radix sort, chunk sort, complexity analysis)
 - Debugging segfaults and memory leaks
 - Code review and identifying edge cases
