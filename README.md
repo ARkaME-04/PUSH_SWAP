@@ -1,4 +1,3 @@
-```markdown
 *This project has been created as part of the 42 curriculum by rhrandri.*
 
 # Push_swap
@@ -110,6 +109,3 @@ Claude (Anthropic) was used throughout this project for:
 - Guidance on project structure and function decomposition
 
 All code was written and understood by the learners. AI was used as a learning tool and mentor, not to generate copy-paste solutions.
-```
-
-Save this as `README.md` at the root of your repository. Want me to adjust anything?
