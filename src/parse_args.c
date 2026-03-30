@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 09:37:58 by tandrian          #+#    #+#             */
-/*   Updated: 2026/03/19 11:49:56 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/30 09:05:03 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+char	*find_flag(int argc, char	**argv)
+{
+	int	i;
+
+	i = 0;
+	while (i < argv)
+	{
+		if (flagged(argv[i]) && flagged(argv[i] != 5))
+			return (argv[i]);
+		i++;
+	}
+	return (NULL);
+}
 
 void	parse_tab(char **tab, t_stack **a)
 {
@@ -46,15 +60,18 @@ void	parse_args(int argc, char **argv, t_stack **a)
 	i = 1;
 	while (i < argc)
 	{
-		split = ft_split(argv[i], ' ');
-		if (!split || !split[0])
+		if (!flagged(argv[i]))
 		{
-			if (split)
-				free_tab(split);
-			error_exit(a, NULL);
+			split = ft_split(argv[i], ' ');
+			if (!split || !split[0])
+			{
+				if (split)
+					free_tab(split);
+				error_exit(a, NULL);
+			}
+			parse_tab(split, a);
+			free_tab(split);
 		}
-		parse_tab(split, a);
-		free_tab(split);
 		i++;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 10:12:54 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/24 08:48:36 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/30 09:08:26 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,29 @@ char	*flag_name(char *flag, double disorder)
 	}
 }
 
-void	handle_sort(char **argv, t_stack **a, t_stack **b, t_bench *bench)
+int	has_bench(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (flagged(argv[i]) == 5)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+void	handle_sort(int argc, char **argv, t_ctx *ctx)
 {
 	int		is_bench;
 	char	*flag;
 	double	disorder;
 
-	is_bench = (flagged(argv[1]) == 5);
-	if (is_bench)
-		flag = argv[2];
-	else
-		flag = argv[1];
-	disorder = compute_disorder(*a);
-	check_flag(flag, a, b, bench);
-	if (is_bench)
-		print_bench(bench, disorder, flag);
+	flag = find_flag(argc, argv);
+	disorder = compute_disorder(*ctx->a);
+	check_flag(flag, ctx->a, ctx->b, ctx->bench);
+	if (has_bench(argc, argv))
+		print_bench(ctx->bench, disorder, flag);
 }

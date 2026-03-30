@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complex_algorithm.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 12:49:03 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/19 11:53:41 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/30 08:33:11 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

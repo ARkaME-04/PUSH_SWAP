@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   adaptive.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tandrian <tandrian@student.42antanana      +#+  +:+       +#+        */
+/*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:12:23 by tandrian          #+#    #+#             */
-/*   Updated: 2026/03/19 10:12:27 by tandrian         ###   ########.fr       */
+/*   Updated: 2026/03/30 08:37:37 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

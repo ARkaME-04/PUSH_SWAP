@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 18:51:48 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/17 12:05:26 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/30 08:33:25 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
