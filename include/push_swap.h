@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 08:45:31 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/30 09:19:57 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/30 18:40:14 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,6 @@ struct	s_stack_node
 	int		rank;
 };
 
-typedef struct s_ctx
-{
-	t_stack	**a;
-	t_stack	**b;
-	t_bench	*bench;
-}	t_ctx;
-
-
 typedef struct s_bench
 {
 	int	ss;
@@ -49,6 +41,13 @@ typedef struct s_bench
 	int	rrb;
 	int	total;
 }	t_bench;
+
+typedef struct s_ctx
+{
+	t_stack	**a;
+	t_stack	**b;
+	t_bench	*bench;
+}	t_ctx;
 
 void	swap(t_stack **head);
 void	sa(t_stack **a, t_bench *bench);
@@ -83,7 +82,7 @@ void	ft_putstr_fd(char *str, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_put_double(double n, int fd);
 void	handle_input(int argc, char **argv, t_stack **a);
-void	handle_sort(char **argv, t_stack **a, t_stack **b, t_ctx *ctx);
+void	handle_sort(int argc, char **argv, t_ctx *ctx);
 void	init_bench(t_bench *bench);
 void	print_bench(t_bench *bench, double disorder, char *flag);
 
@@ -98,6 +97,7 @@ int		ft_sqroot(int n);
 int		find_min_pos(t_stack *a);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		flagged(char *str);
+int		ft_strlcpy(char *dst, const char *src, int dst_size);
 
 double	compute_disorder(t_stack *a);
 double	count_pairs(int *array, int size);
@@ -110,6 +110,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
 char	*flag_name(char *flag, double disorder);
 char	*find_flag(int argc, char	**argv);
+char	*ft_strdup(const char *s1);
 
 long	ft_atol(const char *nptr);
 

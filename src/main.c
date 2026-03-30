@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 11:50:32 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/30 09:16:49 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/30 13:33:53 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	main(int argc, char **argv)
 {
+	t_ctx	ctx;
 	t_stack	*a;
 	t_stack	*b;
 	t_bench	bench;
@@ -29,7 +30,10 @@ int	main(int argc, char **argv)
 		free_stack(&a);
 		return (0);
 	}
-	handle_sort(argv, &a, &b, &bench);
+	ctx.a = &a;
+	ctx.b = &b;
+	ctx.bench = &bench;
+	handle_sort(argc, argv, &ctx);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);

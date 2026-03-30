@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 09:37:58 by tandrian          #+#    #+#             */
-/*   Updated: 2026/03/30 09:05:03 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/30 22:31:24 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,31 @@
 
 char	*find_flag(int argc, char	**argv)
 {
-	int	i;
+	char	*result;
+	char	**split;
+	int		j;
+	int		i;
 
 	i = 0;
-	while (i < argv)
+	while (i < argc)
 	{
-		if (flagged(argv[i]) && flagged(argv[i] != 5))
-			return (argv[i]);
+		split = ft_split(argv[i], ' ');
+		j = 0;
+		while (split && split[j])
+		{
+			ft_putstr_fd("checking: ", 2);
+            ft_putstr_fd(split[j], 2);
+            ft_putstr_fd("\n", 2);
+			if (flagged(argv[j]) && flagged(argv[j]) != 5)
+			{
+				result = ft_strdup(split[j]);
+				free_tab(split);
+				return (result);
+			}
+			j++;
+		}
+		if (split)
+			free_tab(split);
 		i++;
 	}
 	return (NULL);
@@ -34,20 +52,23 @@ void	parse_tab(char **tab, t_stack **a)
 	i = 0;
 	while (tab[i])
 	{
-		if (!is_valid(tab[i]))
+		if (!flagged(tab[i]))
 		{
-			free_tab(tab);
-			error_exit(a, NULL);
+			if (!is_valid(tab[i]))
+			{
+				free_tab(tab);
+				error_exit(a, NULL);
+			}
+			n = ft_atol(tab[i]);
+			if (n > INT_MAX || n < INT_MIN)
+				error_exit(a, NULL);
+			if (has_duplicate(*a, (int)n))
+			{
+				free_tab(tab);
+				error_exit(a, NULL);
+			}
+			add_bottom(a, new_node((int)n));
 		}
-		n = ft_atol(tab[i]);
-		if (n > INT_MAX || n < INT_MIN)
-			error_exit(a, NULL);
-		if (has_duplicate(*a, (int)n))
-		{
-			free_tab(tab);
-			error_exit(a, NULL);
-		}
-		add_bottom(a, new_node((int)n));
 		i++;
 	}
 }
@@ -60,18 +81,17 @@ void	parse_args(int argc, char **argv, t_stack **a)
 	i = 1;
 	while (i < argc)
 	{
-		if (!flagged(argv[i]))
+		split = ft_split(argv[i], ' ');
+		if (!split || !split[0])
 		{
-			split = ft_split(argv[i], ' ');
-			if (!split || !split[0])
+			if (split)
 			{
-				if (split)
-					free_tab(split);
+				free_tab(split);
 				error_exit(a, NULL);
 			}
-			parse_tab(split, a);
-			free_tab(split);
 		}
+		parse_tab(split, a);
+		free_tab(split);
 		i++;
 	}
 }

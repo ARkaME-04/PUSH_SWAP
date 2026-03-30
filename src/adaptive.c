@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:12:23 by tandrian          #+#    #+#             */
-/*   Updated: 2026/03/30 08:37:37 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/30 13:57:38 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 int	flagged(char *str)
 {
+	if (!str)
+		return (0);
 	if (ft_strncmp(str, "--simple", 9) == 0)
 		return (1);
 	if (ft_strncmp(str, "--medium", 9) == 0)
@@ -57,6 +59,8 @@ void	sort_adaptive(t_stack **a, t_stack **b, t_bench *bench)
 
 void	check_flag(char *str, t_stack **a, t_stack **b, t_bench *bench)
 {
+	if (!str)
+		sort_adaptive(a, b, bench);
 	if (flagged(str) == 1)
 		sort_simple(a, b, bench);
 	else if (flagged(str) == 2)

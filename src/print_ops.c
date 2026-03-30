@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 11:18:47 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/30 08:33:34 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/30 18:40:24 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,37 @@ void	print_bench(t_bench *bench, double disorder, char *flag)
 	ft_putstr_fd("\n", 2);
 	print_ops1(bench);
 	print_ops2(bench);
+}
+
+int	ft_strlcpy(char *dst, const char *src, int dst_size)
+{
+	int	i;
+	int	srclen;
+
+	srclen = ft_strlen(src);
+	if (dst_size == 0)
+		return (srclen);
+	i = 0;
+	while (i < (dst_size - 1) && src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (srclen);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char	*s2;
+	int		len;
+
+	if (!s1)
+		return (NULL);
+	len = ft_strlen(s1) + 1;
+	s2 = malloc(len * sizeof(char));
+	if (!s2)
+		return (NULL);
+	ft_strlcpy(s2, s1, len);
+	return (s2);
 }

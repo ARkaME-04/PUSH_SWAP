@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 10:12:54 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/30 09:08:26 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/30 18:34:32 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,32 +30,12 @@ void	init_bench(t_bench *bench)
 
 void	handle_input(int argc, char **argv, t_stack **a)
 {
-	if (flagged(argv[1]) == 5)
-	{
-		if (argc > 2 && flagged(argv[2]))
-		{
-			if (flagged(argv[2]) == 5)
-				error_exit(a, NULL);
-			parse_args(argc - 2, argv + 2, a);
-		}
-		else if (argc > 2)
-			parse_args(argc - 1, argv + 1, a);
-	}
-	else if (flagged(argv[1]))
-		parse_args(argc - 1, argv + 1, a);
-	else
-		parse_args(argc, argv, a);
+	parse_args(argc, argv, a);
 }
 
 char	*flag_name(char *flag, double disorder)
 {
-	if (flagged(flag) == 1)
-		return ("Simple / O(n²)");
-	else if (flagged(flag) == 2)
-		return ("Medium / O(n√n)");
-	else if (flagged(flag) == 3)
-		return ("Complex / O(nlog n)");
-	else
+	if (!flag || flagged(flag) == 0)
 	{
 		if (disorder < 0.2)
 			return ("Adaptive / O(n²)");
@@ -64,17 +44,34 @@ char	*flag_name(char *flag, double disorder)
 		else
 			return ("Adaptive / O(nlog n)");
 	}
+	if (flagged(flag) == 1)
+		return ("Simple / O(n²)");
+	else if (flagged(flag) == 2)
+		return ("Medium / O(n√n)");
+	else if (flagged(flag) == 3)
+		return ("Complex / O(nlog n)");
+	return ("Adaptive / O(nlog n)");
 }
 
 int	has_bench(int argc, char **argv)
 {
-	int	i;
+	char	**split;
+	int		j;
+	int		i;
 
 	i = 1;
 	while (i < argc)
 	{
-		if (flagged(argv[i]) == 5)
-			return (1);
+		split = ft_split(argv[i], ' ');
+		j = 0;
+		while (split && split[j])
+		{
+			if (flagged(argv[j]) == 5)
+				return (1);
+			j++;
+		}
+		if (split)
+			free_tab(split);
 		i++;
 	}
 	return (0);
@@ -82,13 +79,19 @@ int	has_bench(int argc, char **argv)
 
 void	handle_sort(int argc, char **argv, t_ctx *ctx)
 {
-	int		is_bench;
 	char	*flag;
 	double	disorder;
 
 	flag = find_flag(argc, argv);
+	// debug
+	if (flag)
+		write(2, flag, 8);
+	else
+		write(2, "no flag\n", 8);
 	disorder = compute_disorder(*ctx->a);
 	check_flag(flag, ctx->a, ctx->b, ctx->bench);
 	if (has_bench(argc, argv))
 		print_bench(ctx->bench, disorder, flag);
+	if (flag)
+		free(flag);
 }
