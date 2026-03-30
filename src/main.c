@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 11:50:32 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/30 13:33:53 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/30 23:36:50 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	main(int argc, char **argv)
 	handle_input(argc, argv, &a);
 	if (!a || is_sorted(a))
 	{
+		if (has_bench(argc, argv))
+			print_bench(&bench, 0.0, find_flag(argc, argv));
 		free_stack(&a);
 		return (0);
 	}

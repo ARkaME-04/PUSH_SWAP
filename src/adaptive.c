@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:12:23 by tandrian          #+#    #+#             */
-/*   Updated: 2026/03/30 13:57:38 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/30 23:42:59 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ void	sort_adaptive(t_stack **a, t_stack **b, t_bench *bench)
 {
 	double	disorder;
 
+	if (stack_size(*a) <= 5)
+	{
+		sort_simple(a, b, bench);
+		return ;
+	}
 	disorder = compute_disorder(*a);
 	if (disorder < 0.2)
 		sort_simple(a, b, bench);

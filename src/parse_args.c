@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 09:37:58 by tandrian          #+#    #+#             */
-/*   Updated: 2026/03/30 22:31:24 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/30 23:19:10 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,14 @@ char	*find_flag(int argc, char	**argv)
 	int		j;
 	int		i;
 
-	i = 0;
+	i = 1;
 	while (i < argc)
 	{
 		split = ft_split(argv[i], ' ');
 		j = 0;
 		while (split && split[j])
 		{
-			ft_putstr_fd("checking: ", 2);
-            ft_putstr_fd(split[j], 2);
-            ft_putstr_fd("\n", 2);
-			if (flagged(argv[j]) && flagged(argv[j]) != 5)
+			if (flagged(split[j]) && flagged(split[j]) != 5)
 			{
 				result = ft_strdup(split[j]);
 				free_tab(split);

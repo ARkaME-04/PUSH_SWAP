@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 08:45:31 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/30 18:40:14 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/30 23:37:23 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ int		find_min_pos(t_stack *a);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		flagged(char *str);
 int		ft_strlcpy(char *dst, const char *src, int dst_size);
+int		has_bench(int argc, char **argv);
 
 double	compute_disorder(t_stack *a);
 double	count_pairs(int *array, int size);

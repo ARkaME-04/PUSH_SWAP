@@ -6,7 +6,7 @@
 /*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 10:12:54 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/30 18:34:32 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/30 23:20:47 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,11 @@ int	has_bench(int argc, char **argv)
 		j = 0;
 		while (split && split[j])
 		{
-			if (flagged(argv[j]) == 5)
+			if (flagged(split[j]) == 5)
+			{
+				free(split);
 				return (1);
+			}
 			j++;
 		}
 		if (split)
@@ -83,11 +86,6 @@ void	handle_sort(int argc, char **argv, t_ctx *ctx)
 	double	disorder;
 
 	flag = find_flag(argc, argv);
-	// debug
-	if (flag)
-		write(2, flag, 8);
-	else
-		write(2, "no flag\n", 8);
 	disorder = compute_disorder(*ctx->a);
 	check_flag(flag, ctx->a, ctx->b, ctx->bench);
 	if (has_bench(argc, argv))

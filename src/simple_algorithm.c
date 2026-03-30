@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tandrian <tandrian@student.42antanana      +#+  +:+       +#+        */
+/*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:02:26 by tandrian          #+#    #+#             */
-/*   Updated: 2026/03/19 10:02:51 by tandrian         ###   ########.fr       */
+/*   Updated: 2026/03/30 23:46:04 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ static void	sort_three(t_stack **a, t_bench *bench)
 
 void	sort_simple(t_stack **a, t_stack **b, t_bench *bench)
 {
+	if (is_sorted(*a))
+		return ;
 	while (stack_size(*a) > 3)
 	{
 		rotate_top_a(a, find_min_pos(*a), bench);
