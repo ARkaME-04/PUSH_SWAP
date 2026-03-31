@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 09:26:07 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/18 11:12:24 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/31 06:42:46 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
