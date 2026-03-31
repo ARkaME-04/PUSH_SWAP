@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
+/*   By: tandrian <tandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 09:37:58 by tandrian          #+#    #+#             */
-/*   Updated: 2026/03/30 23:19:10 by rhrandri         ###   ########.fr       */
+/*   Created: 2026/03/31 07:14:21 by tandrian          #+#    #+#             */
+/*   Updated: 2026/03/31 07:23:12 by tandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-char	*find_flag(int argc, char	**argv)
+char	*find_flag(int argc, char **argv)
 {
 	char	*result;
 	char	**split;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   adaptive.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
+/*   By: tandrian <tandrian@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:12:23 by tandrian          #+#    #+#             */
-/*   Updated: 2026/03/30 23:42:59 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/03/31 07:26:13 by tandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	sort_adaptive(t_stack **a, t_stack **b, t_bench *bench)
 {
 	double	disorder;
 
-	if (stack_size(*a) <= 5)
+	if (stack_size(*a) <= 10)
 	{
 		sort_simple(a, b, bench);
 		return ;

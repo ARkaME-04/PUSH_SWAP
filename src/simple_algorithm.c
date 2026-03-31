@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
+/*   By: tandrian <tandrian@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/19 10:02:26 by tandrian          #+#    #+#             */
-/*   Updated: 2026/03/30 23:46:04 by rhrandri         ###   ########.fr       */
+/*   Created: 2026/03/31 07:15:12 by tandrian          #+#    #+#             */
+/*   Updated: 2026/03/31 07:15:18 by tandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

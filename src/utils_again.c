@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_again.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rhrandri <rhrandri@student.42antananari    +#+  +:+       +#+        */
+/*   By: tandrian <tandrian@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/11 19:34:21 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/03/30 08:33:48 by rhrandri         ###   ########.fr       */
+/*   Created: 2026/03/31 07:17:41 by tandrian          #+#    #+#             */
+/*   Updated: 2026/03/31 07:17:48 by tandrian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
